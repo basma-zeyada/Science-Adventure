@@ -1,0 +1,11 @@
+{
+  "name": "Primary 4 Science Adventure",
+  "short_name": "Science Adventure",
+  "description": "A playful science learning adventure for Primary 4 explorers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f9ff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": []
+}
