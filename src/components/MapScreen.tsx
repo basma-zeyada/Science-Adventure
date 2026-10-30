@@ -5,12 +5,12 @@ import { Stars } from '@/components/ScoreDashboard';
 
 type MapScreenProps = { chapters: Chapter[]; completed: Record<string, number>; onStart: (level: ScienceLevel) => void };
 
-const kindLabel: Record<LevelKind, string> = { easy: 'Easy', medium: 'Medium', hard: 'Hard', boss: 'Boss challenge' };
+const kindLabel: Record<LevelKind, string> = { easy: 'Easy', medium: 'Medium', hard: 'Hard', boss: 'Mini game' };
 const kindClass: Record<LevelKind, string> = { easy: 'node-easy', medium: 'node-medium', hard: 'node-hard', boss: 'node-boss' };
 
 export function MapScreen({ chapters, completed, onStart }: MapScreenProps) {
   return <main className="map-wrap">
-    <div className="map-intro"><div><p className="eyebrow">Your science trail</p><h2>Choose your next discovery</h2><p className="muted-copy">Clear each glowing stop to unlock the next one. Every chapter ends with a boss challenge.</p></div><div className="map-badge"><Sparkles size={17} /><span>8 worlds<br /><b>32 missions</b></span></div></div>
+    <div className="map-intro"><div><p className="eyebrow">Your science trail</p><h2>Choose your next discovery</h2><p className="muted-copy">Clear each glowing stop to unlock the next one. Every chapter ends with a memory mini game.</p></div><div className="map-badge"><Sparkles size={17} /><span>8 worlds<br /><b>32 missions</b></span></div></div>
     <div className="chapter-list">
       {chapters.map((chapter) => <section className="chapter-card" key={chapter.id} style={{ '--chapter-color': chapter.color, '--chapter-accent': chapter.accent } as CSSProperties}>
         <div className="chapter-heading"><div className="chapter-icon">{chapter.icon}</div><div><p className="chapter-kicker">Chapter {chapter.id}</p><h3>{chapter.title}</h3><p>{chapter.discovery}</p></div><span className="chapter-chip">{chapter.shortTitle}</span></div>

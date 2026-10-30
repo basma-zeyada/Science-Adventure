@@ -4,6 +4,7 @@ import { BookOpen, ChevronDown, Compass, Gift, Music2, VolumeX } from 'lucide-re
 import { chapters, levelOrder, type ScienceLevel } from '@/ChapterData';
 import { GameQuizModal } from '@/components/GameQuizModal';
 import { MapScreen } from '@/components/MapScreen';
+import { MemoryGameModal } from '@/components/MemoryGameModal';
 import { ScoreDashboard } from '@/components/ScoreDashboard';
 
 type SavedProgress = { completed: Record<string, number>; totalScore: number; lastPlayed: string; soundOn: boolean };
@@ -34,7 +35,7 @@ function App() {
     <MapScreen chapters={chapters} completed={progress.completed} onStart={startLevel} />
     <footer className="app-footer"><BookOpen size={18} /><span>Keep exploring: every question is a new clue.</span><Gift size={18} /></footer>
     {showWelcome && completedCount === 0 && <div className="welcome-toast"><button onClick={() => setShowWelcome(false)} aria-label="Dismiss"><span>×</span></button><strong>Welcome, young scientist!</strong><p>Start with Nature Detectives and unlock the whole trail.</p></div>}
-    {activeLevel && <GameQuizModal level={activeLevel} onClose={() => setActiveLevel(null)} onComplete={completeLevel} />}
+    {activeLevel && (activeLevel.miniGame ? <MemoryGameModal title={activeLevel.title} pairs={activeLevel.miniGame.pairs} onClose={() => setActiveLevel(null)} onComplete={completeLevel} /> : <GameQuizModal level={activeLevel} onClose={() => setActiveLevel(null)} onComplete={completeLevel} />)}
   </div>;
 }
 
